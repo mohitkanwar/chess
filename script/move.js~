@@ -1,0 +1,9 @@
+var CAPTURE_SYMBOL='x';
+function move(move){
+var splitby='-';
+if(move.indexOf(CAPTURE_SYMBOL)>-1){
+splitby='x';
+}
+var fromCell=move.split(splitby)[0];
+       
+}

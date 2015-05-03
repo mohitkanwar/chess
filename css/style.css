@@ -1,0 +1,208 @@
+
+.blackcell{
+background-color: darkgray;
+height:65px;
+width :65px;
+
+}
+
+.whitecell{
+background-color: whitesmoke;
+   
+    height: 65px;
+    width: 65px;
+   
+
+}
+.piececontainer{
+}
+.namecell{
+text-align: center;
+}
+.namecell div{
+ 
+ border:0px;
+}
+td {
+border: 0px ;
+}
+
+div {
+border: 2px solid black;
+}
+.possiblemovecell{
+ border-style: dotted;
+        border-color: red;
+}
+
+.active{
+        border-style: solid;
+        border-color: red;
+}
+.whitepawn_white{
+background: url("../images/pieces.png") repeat scroll 64px 70px / 400px 126px rgba(0, 0, 0, 0);
+background-color: whitesmoke;
+height: 65px;
+width: 65px;
+}
+
+.whiterook_white{
+background: url("../images/pieces.png") repeat scroll 0px 70px / 400px 126px rgba(0, 0, 0, 0);
+background-color: whitesmoke;
+height: 65px;
+width: 65px;
+}
+.whiteknight_white{
+background: url("../images/pieces.png") repeat scroll 131px 70px / 400px 126px rgba(0, 0, 0, 0);
+background-color: whitesmoke;
+height: 65px;
+width: 65px;
+}
+.whitebishop_white{
+background: url("../images/pieces.png") repeat scroll -69px 70px / 400px 126px rgba(0, 0, 0, 0);
+background-color: whitesmoke;
+height: 65px;
+width: 65px;
+}
+.whiteking_white{
+background: url("../images/pieces.png") repeat scroll -202px 70px / 400px 126px rgba(0, 0, 0, 0);
+background-color: whitesmoke;
+height: 65px;
+width: 65px;
+}
+.whitequeen_white{
+background: url("../images/pieces.png") repeat scroll 265px 70px / 400px 126px rgba(0, 0, 0, 0);
+background-color: whitesmoke;
+height: 65px;
+width: 65px;
+}
+.whitepawn_black{
+background: url("../images/pieces.png") repeat scroll 64px 70px / 400px 126px rgba(0, 0, 0, 0);
+background-color: darkgray;
+height: 65px;
+width: 65px;
+}
+
+.whiterook_black{
+background: url("../images/pieces.png") repeat scroll 0px 70px / 400px 126px rgba(0, 0, 0, 0);
+background-color: darkgray;
+height: 65px;
+width: 65px;
+}
+.whiteknight_black{
+background: url("../images/pieces.png") repeat scroll 131px 70px / 400px 126px rgba(0, 0, 0, 0);
+background-color: darkgray;
+height: 65px;
+width: 65px;
+}
+.whitebishop_black{
+background: url("../images/pieces.png") repeat scroll -69px 70px / 400px 126px rgba(0, 0, 0, 0);
+background-color: darkgray;
+height: 65px;
+width: 65px;
+}
+.whiteking_black{
+background: url("../images/pieces.png") repeat scroll -202px 70px / 400px 126px rgba(0, 0, 0, 0);
+background-color: darkgray;
+height: 65px;
+width: 65px;
+}
+.whitequeen_black{
+background: url("../images/pieces.png") repeat scroll 265px 70px / 400px 126px rgba(0, 0, 0, 0);
+background-color: darkgray;
+height: 65px;
+width: 65px;
+}
+
+
+.blackpawn_white{
+    background: url("../images/pieces.png") repeat scroll 64px 0 / 400px 126px rgba(0, 0, 0, 0);
+    background-color: whitesmoke;
+    height: 65px;
+width: 65px;
+}
+
+
+.blackrook_white{
+ background: url("../images/pieces.png") repeat scroll 0 0 / 400px 126px whitesmoke;
+height: 65px;
+width: 65px;
+}
+.blackknight_white{
+ background: url("../images/pieces.png") repeat scroll 131px 0 / 400px 126px whitesmoke;
+height: 65px;
+width: 65px;
+}
+.blackbishop_white{
+background: url("../images/pieces.png") repeat scroll -69px 0px / 400px 126px rgba(0, 0, 0, 0);
+background-color: whitesmoke;
+height: 65px;
+width: 65px;
+}
+.blackking_white{
+background: url("../images/pieces.png") repeat scroll -202px 0px / 400px 126px rgba(0, 0, 0, 0);
+background-color: whitesmoke;
+height: 65px;
+width: 65px;
+}
+
+.blackqueen_white{
+background: url("../images/pieces.png") repeat scroll 265px 0px / 400px 126px rgba(0, 0, 0, 0);
+background-color: whitesmoke;
+height: 65px;
+width: 65px;
+}
+
+
+.blackpawn_black{
+    background: url("../images/pieces.png") repeat scroll 64px 0 / 400px 126px rgba(0, 0, 0, 0);
+    background-color: darkgray;
+    height: 65px;
+width: 65px;
+}
+
+
+.blackrook_black{
+ background: url("../images/pieces.png") repeat scroll 0px 0px / 400px 126px rgba(0, 0, 0, 0);
+
+ background-color: darkgray;
+
+height: 65px;
+width: 65px;
+}
+.blackknight_black{
+ background: url("../images/pieces.png") repeat scroll 131px 0 / 400px 126px darkgray;
+ height: 65px;
+width: 65px;
+}
+.blackbishop_black{
+background: url("../images/pieces.png") repeat scroll -69px 0px / 400px 126px rgba(0, 0, 0, 0);
+background-color: darkgray;
+height: 65px;
+width: 65px;
+}
+.blackking_black{
+background: url("../images/pieces.png") repeat scroll -202px 0px / 400px 126px rgba(0, 0, 0, 0);
+background-color: darkgray;
+height: 65px;
+width: 65px;
+}
+.blackqueen_black{
+background: url("../images/pieces.png") repeat scroll 265px 0px / 400px 126px rgba(0, 0, 0, 0);
+background-color: darkgray;
+height: 65px;
+width: 65px;
+}
+.no-close .ui-dialog-titlebar-close {display: none }
+.pawnpromotiondiv{
+height: 60px;
+    width: 60px;
+}
+
+.whitelog{
+background-color: whitesmoke;
+}
+
+.blacklog{
+background-color: darkgray;
+}

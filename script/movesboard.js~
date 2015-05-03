@@ -1,0 +1,7 @@
+
+var movesBoard = angular.module('movesBoard',[]);
+
+
+movesBoard.controller('movesBoardController', function($scope) {
+});
+

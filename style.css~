@@ -1,0 +1,154 @@
+
+.blackcell{
+background-color: darkgray;
+height:65px;
+width :65px;
+
+}
+
+.whitecell{
+background-color: whitesmoke;
+   
+    height: 65px;
+    width: 65px;
+   
+
+}
+.piececontainer{
+}
+.namecell{
+ text-align: center;
+ border:0px;
+}
+td {
+border: 0px ;
+}
+
+div {
+border: 2px solid black;
+}
+.possiblemovecell{
+ border-style: dotted;
+        border-color: red;
+}
+
+.active{
+        border-style: solid;
+        border-color: red;
+}
+.whitepawn_white{
+background: url("./images/pieces.png") repeat scroll 64px 70px / 400px 126px rgba(0, 0, 0, 0);
+background-color: whitesmoke;
+}
+
+.whiterook_white{
+background: url("./images/pieces.png") repeat scroll 0px 70px / 400px 126px rgba(0, 0, 0, 0);
+background-color: whitesmoke;
+}
+.whiteknight_white{
+background: url("./images/pieces.png") repeat scroll 131px 70px / 400px 126px rgba(0, 0, 0, 0);
+background-color: whitesmoke;
+}
+.whitebishop_white{
+background: url("./images/pieces.png") repeat scroll -69px 70px / 400px 126px rgba(0, 0, 0, 0);
+background-color: whitesmoke;
+}
+.whiteking_white{
+background: url("./images/pieces.png") repeat scroll -202px 70px / 400px 126px rgba(0, 0, 0, 0);
+background-color: whitesmoke;
+}
+.whitequeen_white{
+background: url("./images/pieces.png") repeat scroll 265px 70px / 400px 126px rgba(0, 0, 0, 0);
+background-color: whitesmoke;
+}
+.whitepawn_black{
+background: url("./images/pieces.png") repeat scroll 64px 70px / 400px 126px rgba(0, 0, 0, 0);
+background-color: darkgray;
+}
+
+.whiterook_black{
+background: url("./images/pieces.png") repeat scroll 0px 70px / 400px 126px rgba(0, 0, 0, 0);
+background-color: darkgray;
+}
+.whiteknight_black{
+background: url("./images/pieces.png") repeat scroll 131px 70px / 400px 126px rgba(0, 0, 0, 0);
+background-color: darkgray;
+}
+.whitebishop_black{
+background: url("./images/pieces.png") repeat scroll -69px 70px / 400px 126px rgba(0, 0, 0, 0);
+background-color: darkgray;
+}
+.whiteking_black{
+background: url("./images/pieces.png") repeat scroll -202px 70px / 400px 126px rgba(0, 0, 0, 0);
+background-color: darkgray;
+}
+.whitequeen_black{
+background: url("./images/pieces.png") repeat scroll 265px 70px / 400px 126px rgba(0, 0, 0, 0);
+background-color: darkgray;
+}
+
+
+.blackpawn_white{
+    background: url("./images/pieces.png") repeat scroll 64px 0 / 400px 126px rgba(0, 0, 0, 0);
+    background-color: whitesmoke;
+}
+
+
+.blackrook_white{
+ background: url("./images/pieces.png") repeat scroll 0 0 / 400px 126px whitesmoke;
+}
+.blackknight_white{
+ background: url("./images/pieces.png") repeat scroll 131px 0 / 400px 126px whitesmoke;
+
+}
+.blackbishop_white{
+background: url("./images/pieces.png") repeat scroll -69px 0px / 400px 126px rgba(0, 0, 0, 0);
+background-color: whitesmoke;
+}
+.blackking_white{
+background: url("./images/pieces.png") repeat scroll -202px 0px / 400px 126px rgba(0, 0, 0, 0);
+background-color: whitesmoke;
+}
+.blackqueen_white{
+background: url("./images/pieces.png") repeat scroll 265px 0px / 400px 126px rgba(0, 0, 0, 0);
+background-color: whitesmoke;
+}
+
+
+.blackpawn_black{
+    background: url("./images/pieces.png") repeat scroll 64px 0 / 400px 126px rgba(0, 0, 0, 0);
+    background-color: darkgray;
+}
+
+
+.blackrook_black{
+ background: url("./images/pieces.png") repeat scroll 0px 0px / 400px 126px rgba(0, 0, 0, 0);
+
+ background-color: darkgray;
+}
+.blackknight_black{
+ background: url("./images/pieces.png") repeat scroll 131px 0 / 400px 126px darkgray;
+}
+.blackbishop_black{
+background: url("./images/pieces.png") repeat scroll -69px 0px / 400px 126px rgba(0, 0, 0, 0);
+background-color: darkgray;
+}
+.blackking_black{
+background: url("./images/pieces.png") repeat scroll -202px 0px / 400px 126px rgba(0, 0, 0, 0);
+background-color: darkgray;
+}
+.blackqueen_black{
+background: url("./images/pieces.png") repeat scroll 265px 0px / 400px 126px rgba(0, 0, 0, 0);
+background-color: darkgray;
+}
+.no-close .ui-dialog-titlebar-close {display: none }
+.pawnpromotiondiv{
+height: 60px;
+    width: 60px;
+}
+
+.whitelog{
+}
+
+.blacklog{
+}

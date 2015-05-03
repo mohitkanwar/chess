@@ -1,0 +1,20 @@
+var chessApp = angular.module('chessApp',  ['$scope','chessBoardService', function ($scope, chessBoardService) {
+                        $scope.placePieceOnCell=function(piece,cellId){
+                                $("#"+cellId).addClass(piece+"_"+$rootScope.getCellColour(cellId));
+                                
+                        }
+    $scope.callNotify = function(msg) {
+      chessBoardService(msg);
+    };
+  }]).
+run( function () {
+
+
+}).
+
+
+controller('chessController', function($scope) {
+
+
+});
+

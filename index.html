@@ -1,0 +1,227 @@
+<html>
+<head><title>Chess</title>
+ <link rel="stylesheet" type="text/css" href="css/style.css"/>
+ <link rel="stylesheet" type="text/css" href="css/jquery-ui.min.css"/>
+                <script src="./script/jquery.min.js"></script>
+                <script src="./script/jquery-ui.min.js"></script>
+                <script src="./script/angular-1.3.15.js"></script>
+                
+</head>
+<body >
+        <div ng-app="chessApp" ng-controller="chessController">
+                <div ng-controller="movesBoardController">
+                        <table border=1 align="left" id="logtable">
+                                <tr><th class="whitelog">white</th><th  class="blacklog" >black</th></tr>
+                        </table>
+                </div>
+                <div align="center" id="warning"  ng-controller="warningBoardController"></div>
+                <div ng-controller="chessBoardController">
+                        <table align="center" border="1">
+                        
+                        
+                                <tbody><tr>
+                                       <td class="namecell" ></td><td class="namecell" >a</td><td class="namecell" >b</td><td class="namecell" >c</td><td class="namecell" >d</td><td class="namecell" >e</td><td class="namecell" >f</td><td class="namecell" >g</td><td class="namecell" >h</td><td class="namecell" ></td>
+                                       
+	                        </tr>
+	                                                <tr  class="ng-scope">
+	                                                        <td class="namecell" >
+	                                                                <div ng-click="alertval('')" id="" class="">8</div>
+	                                                        </td><td class="" >
+	                                                                <div ng-click="alertval('a8')" id="a8" class="whitecell"></div>
+	                                                        </td><td class="" >
+	                                                                <div ng-click="alertval('b8')" id="b8" class="blackcell"></div>
+	                                                        </td><td class="" >
+	                                                                <div ng-click="alertval('c8')" id="c8" class="whitecell"></div>
+	                                                        </td><td class="" >
+	                                                                <div ng-click="alertval('d8')" id="d8" class="blackcell"></div>
+	                                                        </td><td class="" >
+	                                                                <div ng-click="alertval('e8')" id="e8" class="whitecell"></div>
+	                                                        </td><td class="" >
+	                                                                <div ng-click="alertval('f8')" id="f8" class="blackcell"></div>
+	                                                        </td><td class="" >
+	                                                                <div ng-click="alertval('g8')" id="g8" class="whitecell"></div>
+	                                                        </td><td class="" >
+	                                                                <div ng-click="alertval('h8')" id="h8" class="blackcell"></div>
+	                                                        </td><td class="namecell" >
+	                                                                <div ng-click="alertval('')" id="" class="">8</div>
+	                                                        </td>
+	                                                        
+	                                                </tr><tr  class="ng-scope">
+	                                                        <td class="namecell" >
+	                                                                <div ng-click="alertval('')" id="" class="">7</div>
+	                                                        </td><td class="" >
+	                                                                <div ng-click="alertval('a7')" id="a7" class="blackcell"></div>
+	                                                        </td><td class="" >
+	                                                                <div ng-click="alertval('b7')" id="b7" class="whitecell"></div>
+	                                                        </td><td class="" >
+	                                                                <div ng-click="alertval('c7')" id="c7" class="blackcell"></div>
+	                                                        </td><td class="" >
+	                                                                <div ng-click="alertval('d7')" id="d7" class="whitecell"></div>
+	                                                        </td><td class="" >
+	                                                                <div ng-click="alertval('e7')" id="e7" class="blackcell"></div>
+	                                                        </td><td class="" >
+	                                                                <div ng-click="alertval('f7')" id="f7" class="whitecell"></div>
+	                                                        </td><td class="" >
+	                                                                <div ng-click="alertval('g7')" id="g7" class="blackcell"></div>
+	                                                        </td><td class="" >
+	                                                                <div ng-click="alertval('h7')" id="h7" class="whitecell"></div>
+	                                                        </td><td class="namecell" >
+	                                                                <div ng-click="alertval('')" id="" class="">7</div>
+	                                                        </td>
+	                                                        
+	                                                </tr><tr  class="ng-scope">
+	                                                        <td class="namecell" >
+	                                                                <div ng-click="alertval('')" id="" class="">6</div>
+	                                                        </td><td class="" >
+	                                                                <div ng-click="alertval('a6')" id="a6" class="whitecell"></div>
+	                                                        </td><td class="" >
+	                                                                <div ng-click="alertval('b6')" id="b6" class="blackcell"></div>
+	                                                        </td><td class="" >
+	                                                                <div ng-click="alertval('c6')" id="c6" class="whitecell"></div>
+	                                                        </td><td class="" >
+	                                                                <div ng-click="alertval('d6')" id="d6" class="blackcell"></div>
+	                                                        </td><td class="" >
+	                                                                <div ng-click="alertval('e6')" id="e6" class="whitecell"></div>
+	                                                        </td><td class="" >
+	                                                                <div ng-click="alertval('f6')" id="f6" class="blackcell"></div>
+	                                                        </td><td class="" >
+	                                                                <div ng-click="alertval('g6')" id="g6" class="whitecell"></div>
+	                                                        </td><td class="" >
+	                                                                <div ng-click="alertval('h6')" id="h6" class="blackcell"></div>
+	                                                        </td><td class="namecell" >
+	                                                                <div ng-click="alertval('')" id="" class="">6</div>
+	                                                        </td>
+	                                                        
+	                                                </tr><tr  class="ng-scope">
+	                                                        <td class="namecell" >
+	                                                                <div ng-click="alertval('')" id="" class="">5</div>
+	                                                        </td><td class="" >
+	                                                                <div ng-click="alertval('a5')" id="a5" class="blackcell"></div>
+	                                                        </td><td class="" >
+	                                                                <div ng-click="alertval('b5')" id="b5" class="whitecell"></div>
+	                                                        </td><td class="" >
+	                                                                <div ng-click="alertval('c5')" id="c5" class="blackcell"></div>
+	                                                        </td><td class="" >
+	                                                                <div ng-click="alertval('d5')" id="d5" class="whitecell"></div>
+	                                                        </td><td class="" >
+	                                                                <div ng-click="alertval('e5')" id="e5" class="blackcell"></div>
+	                                                        </td><td class="" >
+	                                                                <div ng-click="alertval('f5')" id="f5" class="whitecell"></div>
+	                                                        </td><td class="" >
+	                                                                <div ng-click="alertval('g5')" id="g5" class="blackcell"></div>
+	                                                        </td><td class="" >
+	                                                                <div ng-click="alertval('h5')" id="h5" class="whitecell"></div>
+	                                                        </td><td class="namecell" >
+	                                                                <div ng-click="alertval('')" id="" class="">5</div>
+	                                                        </td>
+	                                                        
+	                                                </tr><tr  class="ng-scope">
+	                                                        <td class="namecell" >
+	                                                                <div ng-click="alertval('')" id="" class="">4</div>
+	                                                        </td><td class="" >
+	                                                                <div ng-click="alertval('a4')" id="a4" class="whitecell"></div>
+	                                                        </td><td class="" >
+	                                                                <div ng-click="alertval('b4')" id="b4" class="blackcell"></div>
+	                                                        </td><td class="" >
+	                                                                <div ng-click="alertval('c4')" id="c4" class="whitecell"></div>
+	                                                        </td><td class="" >
+	                                                                <div ng-click="alertval('d4')" id="d4" class="blackcell"></div>
+	                                                        </td><td class="" >
+	                                                                <div ng-click="alertval('e4')" id="e4" class="whitecell"></div>
+	                                                        </td><td class="" >
+	                                                                <div ng-click="alertval('f4')" id="f4" class="blackcell"></div>
+	                                                        </td><td class="" >
+	                                                                <div ng-click="alertval('g4')" id="g4" class="whitecell"></div>
+	                                                        </td><td class="" >
+	                                                                <div ng-click="alertval('h4')" id="h4" class="blackcell"></div>
+	                                                        </td><td class="namecell" >
+	                                                                <div ng-click="alertval('')" id="" class="">4</div>
+	                                                        </td>
+	                                                        
+	                                                </tr><tr  class="ng-scope">
+	                                                        <td class="namecell" >
+	                                                                <div ng-click="alertval('')" id="" class="">3</div>
+	                                                        </td><td class="" >
+	                                                                <div ng-click="alertval('a3')" id="a3" class="blackcell"></div>
+	                                                        </td><td class="" >
+	                                                                <div ng-click="alertval('b3')" id="b3" class="whitecell"></div>
+	                                                        </td><td class="" >
+	                                                                <div ng-click="alertval('c3')" id="c3" class="blackcell"></div>
+	                                                        </td><td class="" >
+	                                                                <div ng-click="alertval('d3')" id="d3" class="whitecell"></div>
+	                                                        </td><td class="" >
+	                                                                <div ng-click="alertval('e3')" id="e3" class="blackcell"></div>
+	                                                        </td><td class="" >
+	                                                                <div ng-click="alertval('f3')" id="f3" class="whitecell"></div>
+	                                                        </td><td class="" >
+	                                                                <div ng-click="alertval('g3')" id="g3" class="blackcell"></div>
+	                                                        </td><td class="" >
+	                                                                <div ng-click="alertval('h3')" id="h3" class="whitecell"></div>
+	                                                        </td><td class="namecell" >
+	                                                                <div ng-click="alertval('')" id="" class="">3</div>
+	                                                        </td>
+	                                                        
+	                                                </tr><tr  class="ng-scope">
+	                                                        <td class="namecell" >
+	                                                                <div ng-click="alertval('')" id="" class="">2</div>
+	                                                        </td><td class="" >
+	                                                                <div ng-click="alertval('a2')" id="a2" class="whitecell"></div>
+	                                                        </td><td class="" >
+	                                                                <div ng-click="alertval('b2')" id="b2" class="blackcell"></div>
+	                                                        </td><td class="" >
+	                                                                <div ng-click="alertval('c2')" id="c2" class="whitecell"></div>
+	                                                        </td><td class="" >
+	                                                                <div ng-click="alertval('d2')" id="d2" class="blackcell"></div>
+	                                                        </td><td class="" >
+	                                                                <div ng-click="alertval('e2')" id="e2" class="whitecell"></div>
+	                                                        </td><td class="" >
+	                                                                <div ng-click="alertval('f2')" id="f2" class="blackcell"></div>
+	                                                        </td><td class="" >
+	                                                                <div ng-click="alertval('g2')" id="g2" class="whitecell"></div>
+	                                                        </td><td class="" >
+	                                                                <div ng-click="alertval('h2')" id="h2" class="blackcell"></div>
+	                                                        </td><td class="namecell" >
+	                                                                <div ng-click="alertval('')" id="" class="">2</div>
+	                                                        </td>
+	                                                        
+	                                                </tr><tr  class="ng-scope">
+	                                                        <td class="namecell" >
+	                                                                <div ng-click="alertval('')" id="" class="">1</div>
+	                                                        </td><td class="" >
+	                                                                <div ng-click="alertval('a1')" id="a1" class="blackcell"></div>
+	                                                        </td><td class="" >
+	                                                                <div ng-click="alertval('b1')" id="b1" class="whitecell"></div>
+	                                                        </td><td class="" >
+	                                                                <div ng-click="alertval('c1')" id="c1" class="blackcell"></div>
+	                                                        </td><td class="" >
+	                                                                <div ng-click="alertval('d1')" id="d1" class="whitecell"></div>
+	                                                        </td><td class="" >
+	                                                                <div ng-click="alertval('e1')" id="e1" class="blackcell"></div>
+	                                                        </td><td class="" >
+	                                                                <div ng-click="alertval('f1')" id="f1" class="whitecell"></div>
+	                                                        </td><td class="" >
+	                                                                <div ng-click="alertval('g1')" id="g1" class="blackcell"></div>
+	                                                        </td><td class="" >
+	                                                                <div ng-click="alertval('h1')" id="h1" class="whitecell"></div>
+	                                                        </td><td class="namecell" >
+	                                                                <div ng-click="alertval('')" id="" class="">1</div>
+	                                                        </td>
+	                                                        
+	                                                </tr>
+	                        <tr>
+                                       <td class="namecell" ></td><td class="namecell" >a</td><td class="namecell" >b</td><td class="namecell" >c</td><td class="namecell" >d</td><td class="namecell" >e</td><td class="namecell" >f</td><td class="namecell" >g</td><td class="namecell" >h</td><td class="namecell" ></td>
+                                       
+	                        </tr>
+                        </tbody></table>
+                </div>
+                <span id="dialog" title="Basic dialog">
+                   
+                </span>
+         </div>
+<script src="./script/chess-common.js"></script>
+<script src="./script/chessboard.js"></script>
+<script src="./script/movesboard.js"></script>
+<script src="./script/warningboard.js"></script>
+<script src="./script/pieces.js"></script>
+</body>
+</html>

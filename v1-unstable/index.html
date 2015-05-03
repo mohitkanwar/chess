@@ -1,0 +1,32 @@
+<html>
+<head><title>Chess</title>
+ <link rel="stylesheet" type="text/css" href="css/style.css"/>
+ <link rel="stylesheet" type="text/css" href="css/jquery-ui.min.css"/>
+                <script src="./script/jquery.min.js"></script>
+                <script src="./script/jquery-ui.min.js"></script>
+                <script src="./script/angular.min.js"></script>
+                
+</head>
+<body >
+<table border=1 align="left" id="logtable">
+<tr><th class="whitelog">white</th><th  class="blacklog" >black</th></tr>
+</table>
+<div align="center" id="warning" ></div>
+<table border=1 align="center">
+<tr><td class="namecell" ></td><td class="namecell" >a</td><td class="namecell" >b</td><td class="namecell" >c</td><td class="namecell" >d</td><td class="namecell" >e</td><td class="namecell" >f</td><td class="namecell" >g</td><td class="namecell" >h</td><td class="namecell" ></td></tr>
+<tr><td class="namecell" >8</td><td><div class="whitecell blackrook_white" id="a8"></div></td><td><div  class="blackcell blackknight_black" id="b8"></div></td><td><div  class="whitecell blackbishop_white" id="c8"></div></td><td><div  class="blackcell blackqueen_black" id="d8"></div></td><td><div  class="whitecell blackking_white" id="e8"></div></td><td><div  class="blackcell blackbishop_black" id="f8"></div></td><td><div  class="whitecell blackknight_white" id="g8"></div></td><td  class=""><div  class="blackcell blackrook_black" id="h8"></div></td><td class="namecell" >8</td></tr>
+<tr><td class="namecell" >7</td><td><div class="blackcell blackpawn_black" id="a7"></div></td><td><div class="whitecell blackpawn_white" id="b7"></div></td><td><div class="blackcell blackpawn_black" id="c7"></div></td><td><div class="whitecell blackpawn_white" id="d7" ></div></td><td><div class="blackcell blackpawn_black" id="e7"></div></td><td><div class="whitecell blackpawn_white" id="f7"></div></td><td><div class="blackcell blackpawn_black" id="g7"></div></td><td><div class="whitecell blackpawn_white" id="h7"></div></td><td class="namecell" >7</td></tr>
+<tr><td class="namecell" >6</td><td><div class="whitecell" id="a6"></div></td><td><div class="blackcell" id="b6"></div></td><td><div class="whitecell" id="c6"></div></td><td><div class="blackcell" id="d6"></div></td><td><div class="whitecell" id="e6"></div></td><td><div class="blackcell" id="f6"></div></td><td><div class="whitecell" id="g6"></div></td><td><div class="blackcell" id="h6"></div></td><td class="namecell" >6</td></tr>
+<tr><td class="namecell" >5</td><td><div class="blackcell" id="a5"></div></td><td><div class="whitecell" id="b5"></div></td><td><div class="blackcell" id="c5"></div></td><td><div class="whitecell" id="d5"></div></td><td><div class="blackcell" id="e5"></div></td><td><div class="whitecell" id="f5"></div></td><td><div class="blackcell" id="g5"></div></td><td><div class="whitecell" id="h5"></div></td><td class="namecell" >5</td></tr>
+<tr><td class="namecell" >4</td><td><div class="whitecell" id="a4"></div></td><td><div class="blackcell" id="b4"></div></td><td><div class="whitecell" id="c4"></div></td><td><div class="blackcell" id="d4"></div></td><td><div class="whitecell" id="e4"></div></td><td><div class="blackcell" id="f4"></div></td><td><div class="whitecell" id="g4"></div></td><td><div class="blackcell" id="h4"></div></td><td class="namecell" >4</td></tr>
+<tr><td class="namecell" >3</td><td><div class="blackcell" id="a3"></div></td><td><div class="whitecell" id="b3"></div></td><td><div class="blackcell" id="c3"></div></td><td><div class="whitecell" id="d3"></div></td><td><div class="blackcell" id="e3"></div></td><td><div class="whitecell" id="f3" ></div></td><td><div class="blackcell" id="g3"></div></td><td><div class="whitecell" id="h3"></div></td><td class="namecell" >3</td></tr>
+<tr><td class="namecell" >2</td><td><div class="whitecell whitepawn_white" id="a2"></div></td><td><div class="blackcell whitepawn_black" id="b2"></div></td><td><div class="whitecell whitepawn_white" id="c2"></div></td><td><div class="blackcell whitepawn_black " id="d2"></div></td><td><div class="whitecell whitepawn_white" id="e2"></div></td><td><div class="blackcell whitepawn_black" id="f2"></div></td><td><div class="whitecell whitepawn_white" id="g2"></div></td><td><div class="blackcell whitepawn_black" id="h2"></div></td><td class="namecell" >2</td></tr>
+<tr><td class="namecell" >1</td><td><div class="blackcell whiterook_black" id="a1"></div></td><td><div class="whitecell whiteknight_white" id="b1"></div></td><td><div class="blackcell whitebishop_black" id="c1"></div></td><td><div class="whitecell whitequeen_white" id="d1" ></div></td><td><div class="blackcell whiteking_black" id="e1"></div></td><td><div class="whitecell whitebishop_white" id="f1"></div></td><td><div class="blackcell whiteknight_black" id="g1"></div></td><td><div class="whitecell whiterook_white" id="h1" ></div></td><td class="namecell" >1</td></tr>
+<tr><td class="namecell" ></td><td class="namecell" >a</td><td class="namecell" >b</td><td class="namecell" >c</td><td class="namecell" >d</td><td class="namecell" >e</td><td class="namecell" >f</td><td class="namecell" >g</td><td class="namecell" >h</td><td class="namecell" ></td></tr>
+</table>
+<span id="dialog" title="Basic dialog">
+   
+</span>
+<script src="./script/chess.js"></script>
+</body>
+</html>
