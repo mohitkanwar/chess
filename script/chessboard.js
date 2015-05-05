@@ -66,7 +66,7 @@ var fns=
    console.log($scope.screenshot);
    },
    playMove:function($scope,suggestedMove){
-   fns.updateCurrentScreenShot($scope);
+   
     var moveparts=suggestedMove.split(" ");
         var piecetype=moveparts[0];
         var oldcellId=moveparts[1];
@@ -149,7 +149,7 @@ var fns=
     }
    },
    isMoveLegal:function($scope,suggestedMove){
-               
+        fns.updateCurrentScreenShot($scope);
         fns.playMove($scope,suggestedMove);
         
         var stillunderCheck=fns.isKingUnderCheck($scope,$scope.nextmoveby);
@@ -423,7 +423,7 @@ var fns=
                 possibleMovesCellArray=fns.getBishopMoves(cell,"black");
                 }
                 else if(piece=="blackking"){
-                possibleMovesCellArray=fns.getKingMoves(cell,"black");
+                possibleMovesCellArray=fns.getKingMoves($scope,cell,"black");
                 }
                 else if(piece=="blackqueen"){
                 possibleMovesCellArray=fns.getQueenMoves(cell,"black");
@@ -442,7 +442,7 @@ var fns=
                 possibleMovesCellArray=fns.getBishopMoves(cell,"white");
                 }
                 else if(piece=="whiteking"){
-                possibleMovesCellArray=fns.getKingMoves(cell,"white");
+                possibleMovesCellArray=fns.getKingMoves($scope,cell,"white");
                 }
                 else if(piece=="whitequeen"){
                 possibleMovesCellArray=fns.getQueenMoves(cell,"white");
@@ -965,7 +965,7 @@ return possibleMovesArray;
 * King Functions
 ************************************************************************************************************************************/
 
-getKingMoves:function (currentcell,colour){
+getKingMoves:function ($scope,currentcell,colour){
 var possibleMovesArray=[];
 var cellPosition=currentcell.attr("id").split("");
 
@@ -1042,6 +1042,63 @@ var cellId=fns.getWestCols(cellPosition[0])[0]+(parseInt(cellPosition[1])-1);
         //TODO Add Casteling
         
         // if king has not moved, and rook has not moved, and there is no check on the path, allow casteling
+        var logtobeChecked=".blacklog";
+        var hasKingMoved=false;
+        var hasRook1Moved=false;
+        var hasRook2Moved=false;
+        var rook1= "R a8";
+        var rook2= "R h8";
+        var row=8;
+        var kingcol="e";
+        if(colour=="white"){
+        logtobeChecked=".whitelog";
+         rook1= "R a1";
+         rook2= "R h1";
+         row=1;
+        }
+        for(var i=0;i<$(logtobeChecked).length;i++){
+                if(($(logtobeChecked)[i].textContent.indexOf("K")==0)||($(logtobeChecked)[i].textContent.indexOf("O")==0)){
+               
+                        hasKingMoved=true;
+                       
+                        break;
+                }
+                if($(logtobeChecked)[i].textContent.indexOf(rook1)==0){
+                        hasRook1Moved=true;
+                        break;
+                }
+                if($(logtobeChecked)[i].textContent.indexOf(rook2)==0){
+                        hasRook2Moved=true;
+                        break;
+                }
+        }
+        if(!((hasKingMoved)||(hasRook1Moved)||($("#warning").text()=="Check!!"))){
+        // check for empty and safe path  
+        
+        
+        var cell1ToBeChecked=$("#d"+row);
+        var cell2ToBeChecked=$("#c"+row);
+               
+                        if(fns.isEmptyCell(cell1ToBeChecked)&&fns.isEmptyCell(cell2ToBeChecked)){
+                        // TODO If there is a check on c/d don't add this cell
+                                possibleMovesArray[possibleMovesArray.length]='c'+row;
+                        }
+                
+        
+        
+        
+        }
+        
+        if(!((hasKingMoved)||(hasRook2Moved)||($("#warning").text()=="Check!!"))){
+      var cell1ToBeChecked=$("#f"+row);
+        var cell2ToBeChecked=$("#g"+row);
+               
+                        if(fns.isEmptyCell(cell1ToBeChecked)&&fns.isEmptyCell(cell2ToBeChecked)){
+                         //TODO If there is a check on f/g don't add this cell
+                                possibleMovesArray[possibleMovesArray.length]='g'+row;
+                        }
+        }
+        
 return possibleMovesArray;
 },
 isPawnPromotion:function (piece,cell){
