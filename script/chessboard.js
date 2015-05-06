@@ -67,6 +67,35 @@ var fns=
    },
    playMove:function($scope,suggestedMove){
    
+   if(suggestedMove=="O-O"){
+           if($scope.nextmoveby=="black"){
+                $("#h8").removeClass("blackrook_black");
+                $("#e8").removeClass("blackking_white");
+                $("#f8").addClass("blackrook_black");
+                $("#g8").addClass("blackking_white");
+           }
+           else{
+            $("#h1").removeClass("whiterook_white");
+                $("#e1").removeClass("whiteking_black");
+                $("#f1").addClass("whiterook_white");
+                $("#g1").addClass("whiteking_black");
+           }
+   }
+   else if(suggestedMove=="O-O-O"){
+    if($scope.nextmoveby=="black"){
+                $("#a8").removeClass("blackrook_white");
+                $("#e8").removeClass("blackking_white");
+                $("#d8").addClass("blackrook_black");
+                $("#c8").addClass("blackking_white");
+           }
+           else{
+            $("#a1").removeClass("whiterook_black");
+                $("#e1").removeClass("whiteking_black");
+                $("#d1").addClass("whiterook_white");
+                $("#c1").addClass("whiteking_black");
+           }
+   }
+   else{
     var moveparts=suggestedMove.split(" ");
         var piecetype=moveparts[0];
         var oldcellId=moveparts[1];
@@ -81,7 +110,7 @@ var fns=
         }
         newCell.addClass(piece+"_"+newCellColour);
         currentCell.removeClass(piece+"_"+fns.getCellColour(currentCell));
-        
+   }
    },
     restoreFromScreenshot:function($scope){
             $(".whitepawn_black").removeClass("whitepawn_black");
@@ -319,6 +348,9 @@ var fns=
                 }
         },
         getMoveRepresentation:function($scope,piece,oldCell,newCell,specialCase){
+                                //TODO Handle Casteling
+                                //O-O or O-O-O
+                                
         
                                 var pieceSymbol=fns.getPieceSymbol(piece);
                                 var moverepresentation;
@@ -327,7 +359,14 @@ var fns=
                                 casesymbol="x";
                                 }
                                 
-                                return pieceSymbol+" " +oldCell.attr("id")+" "+casesymbol+" "+newCell.attr('id');
+                                moverepresentation=pieceSymbol+" " +oldCell.attr("id")+" "+casesymbol+" "+newCell.attr('id');
+                                if((moverepresentation=="K e1 - g1")||(moverepresentation=="K e8 - g8")){
+                                        moverepresentation="O-O";
+                                }
+                                else if((moverepresentation=="K e1 - c1")||(moverepresentation=="K e8 - c8")){
+                                        moverepresentation="O-O-O";
+                                }
+                                return moverepresentation;
         },
         logMove:function($scope,piece,oldCell,newCell,specialCase){
         
@@ -458,6 +497,45 @@ var fns=
                                 filteredMoves[filteredMoves.length]=possibleMovesCellArray[i];
                                  }
                                  
+                        }
+                        if(piece=="whiteking"){
+                                //if current position of king is original (unmoved) and casteling wali move is there, but middle pe check hai, to remove castelign wali cell also
+                                if(cell.attr("id")=="e1"){
+                                if((possibleMovesCellArray.indexOf("f1")>-1)&&(possibleMovesCellArray.indexOf("g1")>-1)&&(filteredMoves.indexOf("f1")<0)){
+                                     var index=filteredMoves.indexOf("g1");
+                                        if (index > -1) {
+                                                filteredMoves.splice(index, 1);
+                                        }
+                                // remove g1 from filteredMoves
+                                }
+                                if((possibleMovesCellArray.indexOf("d1")>-1)&&(possibleMovesCellArray.indexOf("c1")>-1)&&(filteredMoves.indexOf("d1")<0)){
+                                // remove c1 from filteredMoves
+                                 var index=filteredMoves.indexOf("c1");
+                                        if (index > -1) {
+                                                filteredMoves.splice(index, 1);
+                                        }
+                                }
+                                }
+                        }
+                        if(piece=="blackking"){
+                         //if current position of king is original (unmoved) and casteling wali move is there, but middle pe check hai, to remove castelign wali cell also
+                                if(cell.attr("id")=="e8"){
+                                if((possibleMovesCellArray.indexOf("f8")>-1)&&(possibleMovesCellArray.indexOf("g8")>-1)&&(filteredMoves.indexOf("f8")<0)){
+                                // remove g1 from filteredMoves
+                                 var index=filteredMoves.indexOf("g8");
+                                        if (index > -1) {
+                                                filteredMoves.splice(index, 1);
+                                        }
+                                }
+                                if((possibleMovesCellArray.indexOf("d8")>-1)&&(possibleMovesCellArray.indexOf("c8")>-1)&&(filteredMoves.indexOf("d8")<0)){
+                                // remove c1 from filteredMoves
+                                 var index=filteredMoves.indexOf("c8");
+                                        if (index > -1) {
+                                                filteredMoves.splice(index, 1);
+                                        }
+                                }
+                                }
+                        
                         }
                         possibleMovesCellArray=filteredMoves;
                  
