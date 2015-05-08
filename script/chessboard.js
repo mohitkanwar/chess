@@ -105,8 +105,25 @@ var fns=
         var newCell=$("#"+newcellId);
         var piece= fns.getPieceType(currentCell);
         var newCellColour=fns.getCellColour(newCell);
+        
+        
+        
         if(moveTypeSymbol=="x"){
-        newCell.removeClass(fns.getPieceType(newCell)+"_"+fns.getCellColour(newCell));
+        	if((piecetype=="P")&&(oldcellId.split('')[0]!= newcellId.split('')[0])&&(fns.isEmptyCell(newCell))){
+        		var row;
+        		if($scope.nextmoveby=="black"){
+        			row=4;
+        		}
+        		else{
+        			row=5;
+        		}
+        		var enpassCell=		$("#"+newcellId.split('')[0]+row);
+        		enpassCell.removeClass(fns.getPieceType(enpassCell)+"_"+fns.getCellColour(enpassCell));
+        	}
+        	else{
+        		 newCell.removeClass(fns.getPieceType(newCell)+"_"+fns.getCellColour(newCell));
+        	}
+       
         }
         newCell.addClass(piece+"_"+newCellColour);
         currentCell.removeClass(piece+"_"+fns.getCellColour(currentCell));
@@ -348,17 +365,27 @@ var fns=
                 }
         },
         getMoveRepresentation:function($scope,piece,oldCell,newCell,specialCase){
-                                //TODO Handle Casteling
-                                //O-O or O-O-O
-                                
-        
+                               
                                 var pieceSymbol=fns.getPieceSymbol(piece);
                                 var moverepresentation;
                                 var casesymbol="-";
                                 if((specialCase=="capture")||(!fns.isEmptyCell(newCell))){
                                 casesymbol="x";
                                 }
-                                
+                                if(pieceSymbol=="P"){
+                                	var oldCellRow=oldCell.attr("id").split('');
+                                	var newCellRow=newCell.attr("id").split('');
+                                	console.log("---------------");
+                                	console.log(oldCellRow[0]);
+                                	console.log(newCellRow[0]);
+                                	console.log(oldCellRow[0]!=newCellRow[0]);
+                                	console.log("fns.isEmptyCell(newCell)"+fns.isEmptyCell(newCell));
+                                	console.log((oldCellRow[0]!=newCellRow[0])&&(fns.isEmptyCell(newCell)));
+                                	
+                                	if((oldCellRow[0]!=newCellRow[0])&&(fns.isEmptyCell(newCell))){
+                                		casesymbol="x";
+                                	}
+                                }
                                 moverepresentation=pieceSymbol+" " +oldCell.attr("id")+" "+casesymbol+" "+newCell.attr('id');
                                 if((moverepresentation=="K e1 - g1")||(moverepresentation=="K e8 - g8")){
                                         moverepresentation="O-O";
@@ -396,7 +423,7 @@ var fns=
                 
                 var isCapture=false;
                 var specialCase="";
-                console.log ("checking king:"+$scope.nextmoveby);
+                
                 if(fns.isPawnPromotion(piece,cell)){
                         fns.showPromotionOptions(piece,cell);
                         specialCase="pawn-promotion";
@@ -624,6 +651,24 @@ var fns=
                                                 possibleMovesArray[possibleMovesArray.length]=adjacentcols[i]+(parseInt(cellPosition[1])-1);
                                         }
                                 }
+                                // en pas on
+                                // if current pawn is on fifth line, and in last move a neighbour moved 2 cells 
+                                if(cellPosition[1]==4){
+                                var logtobeChecked=".whitelog";
+                                var lastMove=$(logtobeChecked)[$(logtobeChecked).length-1];
+                                var neighbour=fns.getAdjacentCols(cellPosition[0]);
+                                //for all neighnours
+                                var move="P "+neighbour[0]+"2 - "+neighbour[0]+"4";
+                                if(move==lastMove.textContent){
+                                	possibleMovesArray[possibleMovesArray.length]=neighbour[0]+"3";
+                                }
+                                
+                                var move="P "+neighbour[1]+"2 - "+neighbour[1]+"4";
+                                if(move==lastMove.textContent){
+                                	possibleMovesArray[possibleMovesArray.length]=neighbour[1]+"3";
+                                }
+                                }
+                                
                         }
                         else if(pawnColour=="white" ){
                                var cellId=cellPosition[0]+(parseInt(cellPosition[1])+1);
@@ -644,6 +689,26 @@ var fns=
                                                 possibleMovesArray[possibleMovesArray.length]=adjacentcols[i]+(parseInt(cellPosition[1])+1);
                                         }
                                 }
+                                
+                                // if current pawn is on fifth line, and in last move a neighbour moved 2 cells 
+                                if(cellPosition[1]==5){
+
+                                    var logtobeChecked=".blacklog";
+                                    var lastMove=$(logtobeChecked)[$(logtobeChecked).length-1];
+                                    var neighbour=fns.getAdjacentCols(cellPosition[0]);
+                                    //for all neighnours
+                                    var move="P "+neighbour[0]+"7 - "+neighbour[0]+"5";
+                                    console.log(move);
+                                    console.log(lastMove.textContent);
+                                    if(move==lastMove.textContent){
+                                    	possibleMovesArray[possibleMovesArray.length]=neighbour[0]+"6";
+                                    }
+                                    
+                                    var move="P "+neighbour[1]+"7 - "+neighbour[1]+"5";
+                                    if(move==lastMove.textContent){
+                                    	possibleMovesArray[possibleMovesArray.length]=neighbour[1]+"6";
+                                    }
+                                    }
                         }
                         
                 return possibleMovesArray;
@@ -1117,7 +1182,7 @@ var cellId=fns.getWestCols(cellPosition[0])[0]+(parseInt(cellPosition[1])-1);
         if(fns.isLegalCell($("#"+cellId))&&(fns.isEmptyCell($("#"+cellId))||fns.getPieceColour(fns.getPieceType($("#"+cellId)))!=colour)){
                 possibleMovesArray[possibleMovesArray.length]=cellId;
         }
-        //TODO Add Casteling
+       
         
         // if king has not moved, and rook has not moved, and there is no check on the path, allow casteling
         var logtobeChecked=".blacklog";
@@ -1158,7 +1223,7 @@ var cellId=fns.getWestCols(cellPosition[0])[0]+(parseInt(cellPosition[1])-1);
         var cell2ToBeChecked=$("#c"+row);
                
                         if(fns.isEmptyCell(cell1ToBeChecked)&&fns.isEmptyCell(cell2ToBeChecked)){
-                        // TODO If there is a check on c/d don't add this cell
+                        //  If there is a check on c/d don't add this cell: Filtered out in next step
                                 possibleMovesArray[possibleMovesArray.length]='c'+row;
                         }
                 
@@ -1172,7 +1237,7 @@ var cellId=fns.getWestCols(cellPosition[0])[0]+(parseInt(cellPosition[1])-1);
         var cell2ToBeChecked=$("#g"+row);
                
                         if(fns.isEmptyCell(cell1ToBeChecked)&&fns.isEmptyCell(cell2ToBeChecked)){
-                         //TODO If there is a check on f/g don't add this cell
+                         // If there is a check on f/g don't add this cell : filtered out in next step
                                 possibleMovesArray[possibleMovesArray.length]='g'+row;
                         }
         }
