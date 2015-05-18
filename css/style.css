@@ -201,8 +201,18 @@ height: 60px;
 
 .whitelog{
 background-color: whitesmoke;
+width:75px;
 }
 
 .blacklog{
 background-color: darkgray;
+width:75px;
+}
+
+.playerName{
+
+  font-size: 28px;
+    font-weight: bold;
+    text-align: center;
+
 }
