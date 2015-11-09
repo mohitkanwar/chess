@@ -1,18 +1,13 @@
-var CAPTURE_SYMBOL='x';
+function suggestNextMove(screenshot,movesHistory,moveBy){
 
-// works on sparkchess notation
-// <startingCellId><moveTypeSymbol><destinationCellId>[=][promotedTo]
-//Move-type 
-//              to: -
-//              capture: x
-//
-function move(move){
-var splitby='-';
-if(move.indexOf(CAPTURE_SYMBOL)>-1){
-splitby='x';
+	var pieceArray = [ "pawn", "rook", "knight",
+			"bishop", "queen", "king" ];
+	
+	var myPiecesUnderAttack={"attacks":[{"mypiece":"opponentpiece"}]};
+	var oppPiecesUnderAttack={"attacks":[{"opponentpiece":"mypiece"}]};
+	var pieceValue={"pawn":1,"knight":3,"bishop":3,"rook":5,"queen":9,"king":4}
+	var myScore=0;
+	var opponentScore=0;
+	var moveMode="Normal"; // "Attacking" or "Defencive"
+	var possibleMoves= {"moves":[{"move":"moverating"}]};
 }
-var fromCell=move.split(splitby)[0];
-       
-}
-
-function
